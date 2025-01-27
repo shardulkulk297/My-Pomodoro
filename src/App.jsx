@@ -1,12 +1,19 @@
-
 import './App.css'
-
+import {Routes, Route} from 'react-router-dom';
+import Timer from './components/Timer';
+import Layout from './components/Layout';
 function App() {
   
 
   return (
     <>
-      <h1>Pomodoro App</h1>
+
+      <Routes>
+      
+        <Route  index path='/' element={<Timer />}/>
+      </Routes>
+      
+
     </>
   )
 }
