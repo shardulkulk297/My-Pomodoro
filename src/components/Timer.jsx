@@ -6,23 +6,45 @@ const Timer = () => {
     const [isRunning, setisRunning] = useState(false);
     const [isWorkSession, setisWorkSession] = useState(true);
     const isWorkSessionRef = useRef(isWorkSession);
+    const [sessionCount, setSessionCount] = useState(0);
 
-    useEffect(()=>{
+    useEffect(() => {
         isWorkSessionRef.current = isWorkSession;
+        
     }, [isWorkSession])
 
-    
-    useEffect(()=>{
 
-        if(!isRunning) return;
+    useEffect(() => {
 
-        const interval = setInterval(()=>{
-            settimeLeft((prevTime)=> {
-                if(prevTime <= 1)
-                {
+        if (!isRunning) return;
+
+        const interval = setInterval(() => {
+            settimeLeft((prevTime) => {
+                if (prevTime <= 1) {
+
 
                     const nextSession = !isWorkSessionRef.current;
-                    const nextTime = nextSession ? 25 * 60 : 5*60;
+                    if(nextSession){
+                        setSessionCount((prevCount)=>{
+                            if(prevCount >=3) return 1;
+                            return prevCount + 1;
+                        })
+                    }
+
+                    let nextTime
+                    if(sessionCount >= 3 && !nextSession)
+                    {
+                        nextTime = 15*60;
+                        alert("Great Work Take A long break!!")
+                        setSessionCount(0);
+                        
+                       
+                    }
+                    else{
+                        nextTime = nextSession ? 25 * 60 : 5 * 60;
+                    }
+                
+                    
                     setisWorkSession(nextSession)
                     setisRunning(false);
                     alert(nextSession ? 'Start Working!!' : 'Break Time!!');
@@ -30,20 +52,20 @@ const Timer = () => {
                 }
                 return prevTime - 1;
             })
-        }, )
+        },)
 
-        
-        
 
-        return ()=> clearInterval(interval);
 
-        
+
+        return () => clearInterval(interval);
+
+
 
     }, [isRunning])
 
-    const toggleTimer = ()=> setisRunning(!isRunning)
+    const toggleTimer = () => setisRunning(!isRunning)
 
-    const formatTime = (sec)=>{
+    const formatTime = (sec) => {
 
         const mins = Math.floor(sec / 60).toString().padStart(2, '0');
         const secs = Math.floor(sec % 60).toString().padStart(2, '0');
@@ -54,15 +76,16 @@ const Timer = () => {
 
     }
 
-    const resetTimer = ()=>{
+    const resetTimer = () => {
         setisRunning(false);
         settimeLeft(1500);
+        setSessionCount(0);
         setisWorkSession(true);
     }
 
     return (
         <div>
-            <Navbar/>
+            <Navbar />
             <main className='container'>
                 <div className="timer">
                     <h1>My-Pomodoro</h1>
@@ -70,7 +93,7 @@ const Timer = () => {
                     <h2>{formatTime(timeLeft)}</h2>
                     <button onClick={toggleTimer}>{isRunning ? 'Stop' : 'Start'}</button>
                     <button onClick={resetTimer}>Reset</button>
-                    
+
                 </div>
 
             </main>
