@@ -2,9 +2,10 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <nav>
-      <h1>25Minutes</h1>
-      Name'sPomodoro
+    
+    <nav className=''>
+      <h1>Shardul Kulkarni</h1>
+   
     </nav>
   )
 }

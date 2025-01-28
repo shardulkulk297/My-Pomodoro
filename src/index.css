@@ -1,3 +1,7 @@
+/* @import "tailwindcss"; */
+
 body{
+  background: rgb(10,13,18);
+background: linear-gradient(104deg, rgba(10,13,18,1) 0%, rgba(5,25,66,1) 100%);
   font-family: "Poppins";
 }

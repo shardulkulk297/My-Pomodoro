@@ -10,7 +10,7 @@ const Timer = () => {
 
     useEffect(() => {
         isWorkSessionRef.current = isWorkSession;
-        
+
     }, [isWorkSession])
 
 
@@ -24,27 +24,26 @@ const Timer = () => {
 
 
                     const nextSession = !isWorkSessionRef.current;
-                    if(nextSession){
-                        setSessionCount((prevCount)=>{
-                            if(prevCount >=3) return 1;
+                    if (nextSession) {
+                        setSessionCount((prevCount) => {
+                            if (prevCount >= 3) return 1;
                             return prevCount + 1;
                         })
                     }
 
                     let nextTime
-                    if(sessionCount >= 3 && !nextSession)
-                    {
-                        nextTime = 15*60;
+                    if (sessionCount >= 3 && !nextSession) {
+                        nextTime = 15 * 60;
                         alert("Great Work Take A long break!!")
                         setSessionCount(0);
-                        
-                       
+
+
                     }
-                    else{
+                    else {
                         nextTime = nextSession ? 25 * 60 : 5 * 60;
                     }
-                
-                    
+
+
                     setisWorkSession(nextSession)
                     setisRunning(false);
                     alert(nextSession ? 'Start Working!!' : 'Break Time!!');
@@ -52,7 +51,7 @@ const Timer = () => {
                 }
                 return prevTime - 1;
             })
-        },)
+        },1000)
 
 
 
@@ -84,21 +83,35 @@ const Timer = () => {
     }
 
     return (
-        <div>
-            <Navbar />
-            <main className='container'>
-                <div className="timer">
-                    <h1>My-Pomodoro</h1>
-                    <p>{isWorkSession ? 'Working Time' : 'Take a Break!'}</p>
-                    <h2>{formatTime(timeLeft)}</h2>
-                    <button onClick={toggleTimer}>{isRunning ? 'Stop' : 'Start'}</button>
-                    <button onClick={resetTimer}>Reset</button>
+        <>
 
-                </div>
+            <div>
+                <Navbar />
 
-            </main>
 
-        </div>
+                <main className='container'>
+
+                    <div className="timer">
+                        <div className='text'>
+                            <h1>My-Pomodoro</h1>
+                            <p>{isWorkSession ? 'Working Time' : 'Take a Break!'}</p>
+
+                        </div>
+                        <div>
+
+                            <h2>{formatTime(timeLeft)}</h2>
+                            <button onClick={toggleTimer}>{isRunning ? 'Stop' : 'Start'}</button>
+                            <button onClick={resetTimer}>Reset</button>
+
+                        </div>
+
+
+                    </div>
+
+                </main>
+
+            </div>
+        </>
     )
 }
 
