@@ -55,7 +55,7 @@ const Timer = () => {
                 }
                 return prevTime - 1;
             })
-        },)
+        },1000)
 
 
 
