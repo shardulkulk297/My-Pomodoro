@@ -45,23 +45,114 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5), 
-    0px 0px 15px rgba(0, 0, 128, 0.4);
-    padding: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4), 
-        0px 1px 3px rgba(0, 0, 0, 0.3), 
-        0px 0px 10px rgba(255, 255, 0, 0.6);
+    background: rgba(15, 23, 42, 0.4); /* Dark blue overlay */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem 3rem;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
 
-    h2{
+    /* h2{
         position: relative;
-        left: 18%;
-        
- 
- 
-        
-
-    }
+        left: 18%;  
+    } */
+    /* h2 {
+        font-size: 4.5rem;
+        color: #e2e8f0;
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        margin: 1rem 0;
+        font-family: 'Roboto Mono', monospace;
+        position: relative;
+      }
+      
+      /* Animated colon separator */
+      /* h2::after {
+        content: '';
+        position: absolute;
+        left: 54%;
+        animation: pulse 1s infinite;
+        color: #ffd700;
+      } */
+      
+      /* @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      } */ 
 }
+
+.session-indicator {
+    margin: 1.5rem 0;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .indicator {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  .work {
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+  }
+  
+  .break {
+    color: #00ffea;
+    text-shadow: 0 0 8px rgba(0, 255, 234, 0.3);
+  }
+  
+
+.timer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, 
+      rgba(255, 255, 255, 0.02) 0%, 
+      rgba(0, 0, 0, 0.1) 100%);
+    pointer-events: none;
+  }
+
+  button {
+    background: linear-gradient(135deg, 
+      rgba(255, 215, 0, 0.9) 0%, 
+      rgba(255, 165, 0, 0.9) 100%);
+    color: #0a0d12;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+      transparent, 
+      rgba(255, 255, 255, 0.2), 
+      transparent);
+    transform: rotate(45deg);
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  }
+  
+  button:active {
+    transform: translateY(0);
+  }
 
 .text{
     display: flex;

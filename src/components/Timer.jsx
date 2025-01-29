@@ -51,7 +51,7 @@ const Timer = () => {
                 }
                 return prevTime - 1;
             })
-        },1000)
+        },)
 
 
 
@@ -69,7 +69,7 @@ const Timer = () => {
         const mins = Math.floor(sec / 60).toString().padStart(2, '0');
         const secs = Math.floor(sec % 60).toString().padStart(2, '0');
 
-        return `${mins} : ${secs}`;
+        return `${mins}:${secs}`;
 
 
 
@@ -94,12 +94,38 @@ const Timer = () => {
                     <div className="timer">
                         <div className='text'>
                             <h1>My-Pomodoro</h1>
-                            <p>{isWorkSession ? 'Working Time' : 'Take a Break!'}</p>
+                            <div className='session-indicator indicator'>
 
+                                <p className={isWorkSession ? 'work' : 'break'}>{isWorkSession ? 'Working Time' : 'Take a Break!'}</p>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div className="progress-ring">
+                            <svg width="220" height="220">
+                                <circle
+                                    className="progress-circle"
+                                    stroke={isWorkSession ? '#ffd700' : '#00ffaa'}
+                                    strokeWidth="4"
+                                    strokeLinecap="round"
+                                    fill="transparent"
+                                    r="95"
+                                    cx="110"
+                                    cy="110"
+                                    style={{
+                                        strokeDasharray: `${(timeLeft / (isWorkSession ? 1500 : 300)) * 597}`,
+                                        strokeDashoffset: 0
+                                    }}
+                                />
+                            </svg>
+                            <h2 className="timer-text">{formatTime(timeLeft)}</h2>
                         </div>
                         <div>
 
-                            <h2>{formatTime(timeLeft)}</h2>
+                            {/* <h2>{formatTime(timeLeft)}</h2> */}
                             <button onClick={toggleTimer}>{isRunning ? 'Stop' : 'Start'}</button>
                             <button onClick={resetTimer}>Reset</button>
 
