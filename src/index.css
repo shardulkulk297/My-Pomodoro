@@ -11,6 +11,7 @@ body {
   width: 220px;
   height: 220px;
   margin: 1rem auto;
+  overflow: visible;
 }
 
 .progress-ring circle {
@@ -33,6 +34,7 @@ body {
 .progress-ring svg {
   position: relative;
   z-index: 1;
+  overflow: visible;
 }
 
 .timer-text {
