@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Navbar from './Navbar'
+import toast from 'react-hot-toast';
+
 const Timer = () => {
 
     const [timeLeft, settimeLeft] = useState(1500);
@@ -34,7 +36,8 @@ const Timer = () => {
                     let nextTime
                     if (sessionCount >= 3 && !nextSession) {
                         nextTime = 15 * 60;
-                        alert("Great Work Take A long break!!")
+                        // alert("Great Work Take A long break!!")
+                        toast.success("Great Work Take A long break!!")
                         setSessionCount(0);
 
 
@@ -46,7 +49,8 @@ const Timer = () => {
 
                     setisWorkSession(nextSession)
                     setisRunning(false);
-                    alert(nextSession ? 'Start Working!!' : 'Break Time!!');
+                    // alert(nextSession ? 'Start Working!!' : 'Break Time!!');
+                    toast.success(nextSession ? 'Start Working!!' : 'Break Time!!')
                     return nextTime;
                 }
                 return prevTime - 1;
