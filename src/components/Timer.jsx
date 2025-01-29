@@ -109,7 +109,7 @@ const Timer = () => {
 
 
                         <div className="progress-ring">
-                            <svg width="220" height="220">
+                            <svg width="220" height="220" viewBox="0 0 220 220">
                                 <circle
                                     className="progress-circle"
                                     stroke={isWorkSession ? '#ffd700' : '#00ffaa'}

@@ -1,10 +1,11 @@
 /* @import "tailwindcss"; */
 
-body{
-  background: rgb(10,13,18);
-background: linear-gradient(104deg, rgba(10,13,18,1) 0%, rgba(5,25,66,1) 100%);
+body {
+  background: rgb(10, 13, 18);
+  background: linear-gradient(104deg, rgba(10, 13, 18, 1) 0%, rgba(5, 25, 66, 1) 100%);
   font-family: "Poppins";
 }
+
 .progress-ring {
   position: relative;
   width: 220px;
@@ -15,52 +16,62 @@ background: linear-gradient(104deg, rgba(10,13,18,1) 0%, rgba(5,25,66,1) 100%);
 .progress-ring circle {
   filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.2));
 }
+
 .progress-ring h2 {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2; /* Add this */
-  color: #fff; /* Ensure contrast */
-  margin: 0; /* Remove default margins */
+  z-index: 2;
+  /* Add this */
+  color: #fff;
+  /* Ensure contrast */
+  margin: 0;
+  /* Remove default margins */
 }
+
 .progress-ring svg {
   position: relative;
   z-index: 1;
 }
+
 .timer-text {
   font-size: 3rem;
   font-weight: 600;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-.timer{
+.timer {
   text-align: center;
 }
+
 @media screen and (max-width: 480px) {
   .progress-ring {
-    width: 100px;  /* Smaller ring for mobile */
-    height: 100px;
-    margin: 0.5rem auto;
-    margin-bottom: 10%;
-  
+    width: 160px;
+    /* Smaller ring for mobile */
+    height: 160px;
+    z-index: 1;
   }
 
   .progress-ring svg {
+    z-index: 1;
+    width: 180px;
+
+    height: 180px;
     position: relative;
-    bottom: 10%;
-    right: 10%;
-  
-    width: 400px;
-    height: 400px;
+    
+    right: 0%;
   }
 
+
   .timer-text {
-    font-size: 2.25rem;  /* Smaller font size for mobile */
+    font-size: 2.25rem;
+    /* Smaller font size for mobile */
   }
 
   .timer h1 {
-    font-size: 1.75rem;  /* Smaller heading for mobile */
+    font-size: 1.75rem;
+    /* Smaller heading for mobile */
     margin-bottom: 0.5rem;
   }
 }
@@ -68,7 +79,8 @@ background: linear-gradient(104deg, rgba(10,13,18,1) 0%, rgba(5,25,66,1) 100%);
 /* For very small devices */
 @media screen and (max-width: 320px) {
   .progress-ring {
-    width: 150px;  /* Even smaller ring for very small devices */
+    width: 150px;
+    /* Even smaller ring for very small devices */
     height: 150px;
   }
 
@@ -109,7 +121,7 @@ background: linear-gradient(104deg, rgba(10,13,18,1) 0%, rgba(5,25,66,1) 100%);
   }
 
   /* Adjust vertical spacing */
-  .timer > * {
+  .timer>* {
     margin-bottom: 0.5rem;
   }
 }
@@ -118,12 +130,12 @@ background: linear-gradient(104deg, rgba(10,13,18,1) 0%, rgba(5,25,66,1) 100%);
 /* @media (hover: none) and (pointer: coarse) {
   button {
     min-height: 44px;  /* Minimum touch target size */
-    /* min-width: 44px;
+/* min-width: 44px;
     padding: 12px 20px;
   } */
 
-  /* Add more space between buttons on touch devices */
-  /* button + button {
+/* Add more space between buttons on touch devices */
+/* button + button {
     margin-left: 12px;
   }
-} */ 
+} */
