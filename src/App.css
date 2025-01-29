@@ -176,3 +176,22 @@ nav {
 }
 
  /* Tailwind utilities last */
+
+ @media (max-width: 480px) {
+  .timer {
+    padding: 1.5rem 2rem;
+  }
+
+  .timer-display h2 {
+    font-size: 2rem;
+  }
+
+  .progress-ring {
+    width: 180px;
+    height: 180px;
+  }
+
+  button {
+    padding: 10px 20px;
+  }
+}

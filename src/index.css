@@ -37,3 +37,93 @@ background: linear-gradient(104deg, rgba(10,13,18,1) 0%, rgba(5,25,66,1) 100%);
 .timer{
   text-align: center;
 }
+@media screen and (max-width: 480px) {
+  .progress-ring {
+    width: 100px;  /* Smaller ring for mobile */
+    height: 100px;
+    margin: 0.5rem auto;
+    margin-bottom: 10%;
+  
+  }
+
+  .progress-ring svg {
+    position: relative;
+    bottom: 10%;
+    right: 10%;
+  
+    width: 400px;
+    height: 400px;
+  }
+
+  .timer-text {
+    font-size: 2.25rem;  /* Smaller font size for mobile */
+  }
+
+  .timer h1 {
+    font-size: 1.75rem;  /* Smaller heading for mobile */
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* For very small devices */
+@media screen and (max-width: 320px) {
+  .progress-ring {
+    width: 150px;  /* Even smaller ring for very small devices */
+    height: 150px;
+  }
+
+  .progress-ring svg {
+    width: 150px;
+    height: 150px;
+  }
+
+  .timer-text {
+    font-size: 2rem;
+  }
+
+  .timer h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Landscape orientation handling */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .progress-ring {
+    width: 140px;
+    height: 140px;
+    margin: 0.25rem auto;
+  }
+
+  .progress-ring svg {
+    width: 140px;
+    height: 140px;
+  }
+
+  .timer-text {
+    font-size: 1.75rem;
+  }
+
+  .timer h1 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  /* Adjust vertical spacing */
+  .timer > * {
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Additional utility for better touch interaction on mobile */
+/* @media (hover: none) and (pointer: coarse) {
+  button {
+    min-height: 44px;  /* Minimum touch target size */
+    /* min-width: 44px;
+    padding: 12px 20px;
+  } */
+
+  /* Add more space between buttons on touch devices */
+  /* button + button {
+    margin-left: 12px;
+  }
+} */ 
