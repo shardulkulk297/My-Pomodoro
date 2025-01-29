@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     
     <nav className=''>
-      <h1>Shardul Kulkarni</h1>
+      
    
     </nav>
   )
