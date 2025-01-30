@@ -15,7 +15,7 @@ const Timer = () => {
     useEffect(() => {
         audioRef.current.preload = 'auto'
         audioRef.current.volume = 0.5;
-    })
+    }, [])
 
     useEffect(() => {
         isWorkSessionRef.current = isWorkSession;
@@ -31,7 +31,15 @@ const Timer = () => {
             settimeLeft((prevTime) => {
                 if (prevTime <= 1) {
 
-                    audioRef.current.play();
+                    const audio = audioRef.current;
+                audio.playbackRate = 3.2; 
+                audio.play();
+
+
+                    setTimeout(() => {
+                        audioRef.current.pause();
+                        audioRef.current.currentTime = 0;
+                    }, 3000);
 
 
                     const nextSession = !isWorkSessionRef.current;
@@ -56,7 +64,6 @@ const Timer = () => {
                     }
                     // audioRef.current.pause();
                     // audioRef.current.currentTime = 0;
-
 
                     setisWorkSession(nextSession)
                     setisRunning(false);
