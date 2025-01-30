@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import Navbar from './Navbar'
 import toast from 'react-hot-toast';
+import alarm from '../assets/alarm_clock.mp3'
 
 const Timer = () => {
 
@@ -9,6 +10,12 @@ const Timer = () => {
     const [isWorkSession, setisWorkSession] = useState(true);
     const isWorkSessionRef = useRef(isWorkSession);
     const [sessionCount, setSessionCount] = useState(0);
+    const audioRef = useRef(new Audio(alarm));
+
+    useEffect(() => {
+        audioRef.current.preload = 'auto'
+        audioRef.current.volume = 0.5;
+    })
 
     useEffect(() => {
         isWorkSessionRef.current = isWorkSession;
@@ -24,6 +31,8 @@ const Timer = () => {
             settimeLeft((prevTime) => {
                 if (prevTime <= 1) {
 
+                    audioRef.current.play();
+
 
                     const nextSession = !isWorkSessionRef.current;
                     if (nextSession) {
@@ -37,7 +46,7 @@ const Timer = () => {
                     if (sessionCount >= 3 && !nextSession) {
                         nextTime = 15 * 60;
                         // alert("Great Work Take A long break!!")
-                        toast.success("Great Work Take A long break!!")
+                        toast.success("Great Work Take A long break 🎉!!")
                         setSessionCount(0);
 
 
@@ -45,12 +54,14 @@ const Timer = () => {
                     else {
                         nextTime = nextSession ? 25 * 60 : 5 * 60;
                     }
+                    // audioRef.current.pause();
+                    // audioRef.current.currentTime = 0;
 
 
                     setisWorkSession(nextSession)
                     setisRunning(false);
                     // alert(nextSession ? 'Start Working!!' : 'Break Time!!');
-                    toast.success(nextSession ? 'Start Working!!' : 'Break Time!!')
+                    toast.success(nextSession ? 'Start Working! 💻' : 'Break Time! ☕')
                     return nextTime;
                 }
                 return prevTime - 1;
